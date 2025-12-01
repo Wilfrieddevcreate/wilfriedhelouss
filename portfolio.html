@@ -36,7 +36,12 @@
       display:flex;
       justify-content:center;
     }
-
+    
+    a{
+      text-decoration: none;
+      color: inherit;
+    
+    }
     .wrap{
       width:100%;
       max-width:var(--max-width);
@@ -200,6 +205,37 @@
     .proj-info h3{margin:0;font-size:15px}
     .proj-info p{margin:6px 0 0;color:var(--muted);font-size:13px}
 
+    /* Zone de la miniature */
+    .proj-thumb {
+    width: 70px;
+    height: 70px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #eee;
+    flex-shrink: 0;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    /* Image */
+    .proj-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+    .project {
+      align-items: flex-start;
+    }
+
+    .proj-thumb {
+      width: 60px;
+      height: 60px;
+    }
+    }
+
     /* Timeline (Experience/Edu) */
     .timeline{display:flex;flex-direction:column;gap:10px}
     .timeline-item{display:flex;gap:12px;align-items:flex-start}
@@ -336,82 +372,116 @@
           </div>
         </section>
 
-        <!-- SKILLS -->
+            <!-- SKILLS -->
         <section id="skills" class="fade-up">
-          <h2>Compétences</h2>
-          <div class="card skills-grid">
-            <div class="skill">
-              <div style="display:flex;justify-content:space-between;font-weight:600">
-                <span>HTML & CSS</span><span class="small">95%</span>
-              </div>
-              <div class="bar"><div class="fill" style="width:95%"></div></div>
+        <h2>Compétences</h2>
+        <div class="card skills-grid">
+
+          <!-- FRONTEND -->
+          <div class="skill">
+            <div style="display:flex;justify-content:space-between;font-weight:600">
+              <span>HTML & CSS / Tailwind</span><span class="small">95%</span>
             </div>
-            <div class="skill">
-              <div style="display:flex;justify-content:space-between;font-weight:600">
-                <span>React / Next</span><span class="small">90%</span>
-              </div>
-              <div class="bar"><div class="fill" style="width:90%"></div></div>
-            </div>
-            <div class="skill">
-              <div style="display:flex;justify-content:space-between;font-weight:600">
-                <span>TypeScript</span><span class="small">80%</span>
-              </div>
-              <div class="bar"><div class="fill" style="width:80%"></div></div>
-            </div>
-            <div class="skill">
-              <div style="display:flex;justify-content:space-between;font-weight:600">
-                <span>UI / Prototypage</span><span class="small">85%</span>
-              </div>
-              <div class="bar"><div class="fill" style="width:85%"></div></div>
-            </div>
-            <div class="skill">
-              <div style="display:flex;justify-content:space-between;font-weight:600">
-                <span>Performance</span><span class="small">75%</span>
-              </div>
-              <div class="bar"><div class="fill" style="width:75%"></div></div>
-            </div>
-            <div class="skill">
-              <div style="display:flex;justify-content:space-between;font-weight:600">
-                <span>Testing</span><span class="small">60%</span>
-              </div>
-              <div class="bar"><div class="fill" style="width:60%"></div></div>
-            </div>
+            <div class="bar"><div class="fill" style="width:95%"></div></div>
           </div>
+
+          <div class="skill">
+            <div style="display:flex;justify-content:space-between;font-weight:600">
+              <span>React / Next.js</span><span class="small">90%</span>
+            </div>
+            <div class="bar"><div class="fill" style="width:90%"></div></div>
+          </div>
+
+          <div class="skill">
+            <div style="display:flex;justify-content:space-between;font-weight:600">
+              <span>TypeScript</span><span class="small">80%</span>
+            </div>
+            <div class="bar"><div class="fill" style="width:80%"></div></div>
+          </div>
+
+          <!-- BACKEND -->
+          <div class="skill">
+            <div style="display:flex;justify-content:space-between;font-weight:600">
+              <span>Laravel / PHP</span><span class="small">75%</span>
+            </div>
+            <div class="bar"><div class="fill" style="width:75%"></div></div>
+          </div>
+
+          <div class="skill">
+            <div style="display:flex;justify-content:space-between;font-weight:600">
+              <span>API REST / Node.js</span><span class="small">70%</span>
+            </div>
+            <div class="bar"><div class="fill" style="width:70%"></div></div>
+          </div>
+
+          <div class="skill">
+            <div style="display:flex;justify-content:space-between;font-weight:600">
+              <span>MySQL / Base de données</span><span class="small">75%</span>
+            </div>
+            <div class="bar"><div class="fill" style="width:75%"></div></div>
+          </div>
+
+          <!-- DEVOPS -->
+          <div class="skill">
+            <div style="display:flex;justify-content:space-between;font-weight:600">
+              <span>Docker</span><span class="small">70%</span>
+            </div>
+            <div class="bar"><div class="fill" style="width:70%"></div></div>
+          </div>
+
+          <div class="skill">
+            <div style="display:flex;justify-content:space-between;font-weight:600">
+              <span>Git / GitHub / CI-CD</span><span class="small">85%</span>
+            </div>
+            <div class="bar"><div class="fill" style="width:85%"></div></div>
+          </div>
+        </div>
         </section>
+
 
         <!-- PROJECTS -->
         <section id="projects" class="fade-up">
           <h2>Projets récents</h2>
           <div class="card projects-grid">
-            <div class="project">
-              <div class="proj-thumb">A</div>
-              <div class="proj-info">
-                <h3>App de gestion de stock</h3>
-                <p class="small">React • Node • PostgreSQL — Interface admin réactive, filtres et graphique en temps réel.</p>
+            <a href="https://aya-tchad.org/">
+              <div class="project">
+                <div class="proj-thumb">
+                  <img src="images/tchad.png" alt="Page d'accueil de Eya Tchad"/>
+                </div>
+                <div class="proj-info">
+                  <h3>AYA Empowerment Platform</h3>
+                  <p class="small">React • Laravel • MySQL — Interface admin réactive, filtres et graphique en temps réel.</p>
+                </div>
               </div>
-            </div>
+            </a>
 
             <div class="project">
-              <div class="proj-thumb">B</div>
+              <div class="proj-thumb">
+                <img src="images/catalogue.png" alt="Page d'accueil du catalogue WhatsApp"/>
+              </div>
               <div class="proj-info">
-                <h3>Landing page marketing</h3>
+                <h3>Catalogue WhatsApp</h3>
                 <p class="small">Next.js • SEO • Animations CSS — Conversion optimisée et intégration analytics.</p>
               </div>
             </div>
 
             <div class="project">
-              <div class="proj-thumb">C</div>
+              <div class="proj-thumb">
+                <img src="images/flask.png" alt="Page d'aceuil du Dashboard">
+              </div>
               <div class="proj-info">
-                <h3>Dashboard Agri</h3>
-                <p class="small">Next + Tailwind • Graphs — Dashboard responsive pour suivi de production.</p>
+                <h3>App pour etudiants</h3>
+                <p class="small">Next + Tailwind • Graphs — Dashboard responsive pour suivi etudiants.</p>
               </div>
             </div>
 
             <div class="project">
-              <div class="proj-thumb">D</div>
+              <div class="proj-thumb">
+                <img src="images/lodil.jpeg" alt="Page d'accueil de Lodil">
+              </div>
               <div class="proj-info">
-                <h3>Portfolio interactif</h3>
-                <p class="small">Animations, transitions et page contact avec validation client-side.</p>
+                <h3>Gestion de stocks de produits</h3>
+                <p class="small">Laravel • bootstrap • Image d'illustration — Gestion de stocks de produits.</p>
               </div>
             </div>
           </div>
@@ -424,41 +494,37 @@
             <div class="timeline-item">
               <div class="dot" aria-hidden="true"></div>
               <div>
+                <strong>Stagiaire Développement Web — Edoutech</strong>
+                <div class="small">Novembre 2023 — Février 2024</div>
+                <div class="small" style="margin-top:6px;color:var(--muted)">
+                  Développement et intégration web, gestion et amélioration d’API, ajout de nouvelles fonctionnalités.
+              </div>
+            </div>
+            </div>
+             <div class="timeline-item">
+              <div class="dot" aria-hidden="true"></div>
+              <div>
                 <strong>Stagiaire Frontend — FicatGroup</strong>
-                <div class="small">Mai 2024 — Août 2024</div>
+                <div class="small">Avril 2024 — Septembre 2024</div>
                 <div class="small" style="margin-top:6px;color:var(--muted)">Travail sur composants réutilisables, optimisation des performances et intégration d'APIs.</div>
               </div>
             </div>
-
+            
             <div class="timeline-item">
               <div class="dot" aria-hidden="true"></div>
               <div>
-                <strong>Formation intensive — Epitech Bénin</strong>
+                <strong>Formation intensive (Coding Academy)— Epitech Bénin</strong>
                 <div class="small">2023 — 2024</div>
                 <div class="small" style="margin-top:6px;color:var(--muted)">6 mois de formation intense sur développement web et best practices.</div>
               </div>
             </div>
           </div>
         </section>
-
-        <!-- TESTIMONIALS -->
-        <section id="testimonials" class="fade-up">
-          <h2>Témoignages</h2>
-          <div class="card testi">
-            <div class="tcard">
-              <strong>Marie — Product Owner</strong>
-              <p class="small" style="margin-top:8px;color:var(--muted)">"Travailler avec Ton Nom a accéléré la livraison du projet. Communication claire et UI impeccable."</p>
-            </div>
-            <div class="tcard">
-              <strong>Paul — CTO</strong>
-              <p class="small" style="margin-top:8px;color:var(--muted)">"Livrables propres, tests et attention aux détails. Recommandé."</p>
-            </div>
-          </div>
-        </section>
-
         <!-- FOOTER NOTE -->
         <footer>
-          <div class="small">Tu veux personnaliser ce modèle ? Dis-moi ce que tu veux changer (couleurs, polices, sections) et je t'aide à l'adapter.</div>
+          <div class="footer-bottom">
+            © 2025 Wilfried HELOUSSATO — Tous droits réservés
+          </div>
         </footer>
       </main>
 
@@ -468,7 +534,7 @@
           <h2>Contact</h2>
           <p class="small">Tu as un projet ? Écris-moi :</p>
 
-          <form id="contact" onsubmit="event.preventDefault(); alert('Formulaire simulé — implémente un backend pour envoyer.');">
+          <form id="contact" onsubmit="event.preventDefault(); alert('Formulaire simulé — Merci de m\'envoyer un email.');">
             <input type="text" placeholder="Ton nom" required />
             <input type="email" placeholder="Email" required />
             <input type="text" placeholder="Sujet" />
@@ -479,9 +545,9 @@
           <div style="margin-top:12px">
             <div class="small">Réseaux</div>
             <div class="socials" style="margin-top:8px">
-              <a class="btn" href="#" style="padding:8px 10px">GitHub</a>
-              <a class="btn" href="#" style="padding:8px 10px">LinkedIn</a>
-              <a class="btn" href="#" style="padding:8px 10px">Twitter</a>
+              <a class="btn" href="https://github.com/Wilfrieddevcreate" style="padding:8px 10px">GitHub</a>
+              <a class="btn" href="https://www.linkedin.com/in/wilfried-heloussato-325a0b273/" style="padding:8px 10px">LinkedIn</a>
+              <a class="btn" href="mailto:yves.heloussato@epitech.eu" style="padding:8px 10px">Email</a>
             </div>
           </div>
         </div>
@@ -489,17 +555,24 @@
         <div class="card fade-up">
           <h2>Compétences complémentaires</h2>
           <div class="small" style="margin-top:8px;color:var(--muted)">
-            - Accessibilité (a11y)<br>
+            - Accessibilité (a11 days)<br>
             - Optimisation SEO basique<br>
             - CI / CD (GitHub Actions)<br>
-            - Tests unitaires & E2E
+            - Tests unitaires & E2E<br>
+            - Autonomie et sens de l’initiative<br>
+            - Curiosité et soif d’apprendre<br>
+            - Adaptabilité et rapidité d’apprentissage<br>
+            -Capacité à travailler en équipe
           </div>
+          
         </div>
 
         <div class="card fade-up">
           <h2>Download</h2>
           <p class="small">Télécharge mon CV :</p>
-          <a class="btn" href="#" download>Télécharger CV (PDF)</a>
+          <a class="btn" href="images/CV_2025-11-20_Yves Wilfried_HELOUSSATO.pdf" download="Wilfried_Heloussato_CV.pdf">
+            Télécharger CV (PDF)
+          </a>
         </div>
       </aside>
     </div>
