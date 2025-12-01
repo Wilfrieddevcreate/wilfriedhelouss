@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portfolio — Ton Nom</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --muted:#98a0b3;
+      --accent:#7c5cff;
+      --accent-2:#22c1c3;
+      --glass: rgba(255,255,255,0.04);
+      --radius:16px;
+      --max-width:1100px;
+    }
+
+    /* Reset / base */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      background:
+        radial-gradient(1200px 400px at -10% -10%, rgba(124,92,255,0.08), transparent 10%),
+        radial-gradient(800px 300px at 120% 120%, rgba(34,193,195,0.04), transparent 10%),
+        var(--bg);
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding:40px 20px;
+      display:flex;
+      justify-content:center;
+    }
+
+    .wrap{
+      width:100%;
+      max-width:var(--max-width);
+    }
+
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      margin-bottom:28px;
+    }
+
+    .brand{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      text-decoration:none;
+      color:inherit;
+    }
+    .logo{
+      width:52px;
+      height:52px;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      border-radius:12px;
+      display:grid;
+      place-items:center;
+      font-weight:800;
+      font-family: "Playfair Display", serif;
+      color:white;
+      box-shadow: 0 6px 18px rgba(124,92,255,0.16);
+    }
+    nav{display:flex;gap:16px;align-items:center}
+    a.nav-link{
+      color:var(--muted);
+      text-decoration:none;
+      font-size:14px;
+      padding:8px 12px;
+      border-radius:10px;
+    }
+    a.nav-link:hover{color: #fff; background:var(--glass)}
+
+    /* Layout */
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 360px;
+      gap:28px;
+      align-items:start;
+    }
+
+    /* Left column - main */
+    main{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      padding:24px;
+      border-radius:var(--radius);
+      backdrop-filter: blur(6px);
+      box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+    }
+
+    .hero{
+      display:flex;
+      gap:20px;
+      align-items:center;
+      margin-bottom:18px;
+    }
+    .avatar{
+      width:120px;
+      height:120px;
+      border-radius:20px;
+      background:linear-gradient(135deg,#fff0, rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.04);
+      display:grid;
+      place-items:center;
+      font-size:36px;
+      font-weight:700;
+      color:transparent;
+      background-image: linear-gradient(135deg,var(--accent),var(--accent-2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      box-shadow: 0 6px 22px rgba(12,18,32,0.6);
+    }
+    .hero .title{
+      flex:1;
+    }
+    .title h1{
+      margin:0;
+      font-family:"Playfair Display", serif;
+      font-size:28px;
+      letter-spacing: -0.4px;
+      color: #fff;
+    }
+    .title p{margin:6px 0 0;color:var(--muted);}
+
+    .cta-row{margin-top:14px; display:flex; gap:12px; align-items:center;}
+    .btn{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      padding:10px 14px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,0.04);
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+      font-size:14px;
+    }
+    .btn-primary{
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      color:#071022;
+      box-shadow: 0 8px 26px rgba(124,92,255,0.18);
+      border:none;
+    }
+
+    section{margin-top:20px}
+    section h2{
+      font-size:16px;
+      margin:0 0 12px 0;
+      color:#fff;
+    }
+    .card{
+      background:var(--card);
+      padding:14px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,0.03);
+    }
+
+    /* About */
+    .about p{color:var(--muted)}
+    .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+    .tag{
+      background:rgba(255,255,255,0.03);
+      color:var(--muted);
+      padding:8px 10px;border-radius:999px;font-size:13px;
+    }
+
+    /* Skills */
+    .skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .skill{
+      display:flex;flex-direction:column;gap:8px;
+    }
+    .skill .bar{
+      height:10px;border-radius:10px;background:rgba(255,255,255,0.04);overflow:hidden;
+    }
+    .skill .fill{height:100%;border-radius:10px;background:linear-gradient(90deg,var(--accent),var(--accent-2));width:60%}
+
+    /* Projects */
+    .projects-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:12px;
+    }
+    .project{
+      display:flex;gap:12px;align-items:center;
+    }
+    .proj-thumb{
+      width:88px;height:64px;border-radius:10px;flex:0 0 88px;
+      background:linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      display:grid;place-items:center;font-weight:700;color:var(--muted);
+    }
+    .proj-info h3{margin:0;font-size:15px}
+    .proj-info p{margin:6px 0 0;color:var(--muted);font-size:13px}
+
+    /* Timeline (Experience/Edu) */
+    .timeline{display:flex;flex-direction:column;gap:10px}
+    .timeline-item{display:flex;gap:12px;align-items:flex-start}
+    .dot{width:12px;height:12px;border-radius:50%;background:var(--accent);margin-top:6px;flex:0 0 12px}
+
+    /* Testimonials */
+    .testi{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .testi .tcard{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:12px;border-radius:12px}
+
+    /* Right column - aside */
+    aside{
+      position:relative;
+      height:fit-content;
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+    }
+    .contact-card{position:sticky; top:20px}
+    .socials{display:flex;gap:10px;flex-wrap:wrap}
+
+    /* Contact form */
+    form{display:grid;gap:10px}
+    input,textarea,select{
+      background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px;border-radius:10px;color:inherit;
+      outline:none;
+    }
+    input::placeholder, textarea::placeholder{color:var(--muted)}
+    .small{font-size:13px;color:var(--muted)}
+
+    footer{margin-top:22px;text-align:center;color:var(--muted);font-size:13px;padding:18px 0}
+
+    /* Responsive */
+    @media (max-width:980px){
+      .grid{grid-template-columns:1fr; }
+      .projects-grid{grid-template-columns:1fr}
+      .skills-grid{grid-template-columns:repeat(3,1fr)}
+      .testi{grid-template-columns:1fr}
+      .avatar{width:96px;height:96px}
+    }
+
+    @media (max-width:480px){
+      body{padding:20px}
+      header{flex-direction:column; align-items:flex-start; gap:12px}
+      .skill .fill{width:45%}
+    }
+
+    /* small animation */
+    .fade-up{opacity:0; transform:translateY(8px); animation:fadeUp .7s cubic-bezier(.2,.9,.3,1) forwards}
+    @keyframes fadeUp{to{opacity:1; transform:none}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="#">
+        <div class="logo">WH</div>
+        <div>
+          <div style="font-weight:700">Wilfried HELOUSSATO</div>
+          <div style="font-size:12px;color:var(--muted)">Développeur Fullstack • DevOps • React • Laravel • API</div>
+        </div>
+      </a>
+
+      <nav>
+        <a class="nav-link" href="#about">À propos</a>
+        <a class="nav-link" href="#projects">Projets</a>
+        <a class="nav-link" href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <div class="grid">
+      <main>
+        <!-- HERO -->
+        <section class="hero card fade-up">
+          <div class="avatar">WH</div>
+          <div class="title">
+            <h1>Salut — Je suis Ton Wilfried.</h1>
+            <p>Fullstack & DevOps — React/Next.js, Nest.js, Laravel, Docker. Je développe des applications rapides et prêtes pour la production.</p>
+
+            <div class="cta-row">
+              <a class="btn btn-primary" href="#contact">Travaillons ensemble</a>
+              <a class="btn" href="#projects">Voir mes projets</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section id="about" class="about fade-up" style="margin-top:18px">
+          <h2>À propos de moi</h2>
+          <div class="card">
+            <p>Je crée des interfaces web modernes et performantes avec React/Next.js, et des backends robustes avec Laravel. J’accorde une grande importance à l’UX, à la maintenabilité du code et aux workflows DevOps comme Docker.</p>
+
+            <div style="display:flex;gap:18px;margin-top:12px;align-items:center;flex-wrap:wrap">
+              <div>
+                <strong>📍 Localisation</strong>
+                <div class="small">Bénin/Cotonou </div>
+              </div>
+              <div>
+                <strong>💼 Statut</strong>
+                <div class="small">En entreprise • Ouvert aux opportunités</div>
+              </div>
+              <div>
+                <strong>✉️ Mail</strong>
+                <div class="small">yves.heloussato@epitech.eu</div>
+              </div>
+            </div>
+
+            <div class="tags" aria-hidden="true">
+              <!-- Frontend -->
+              <div class="tag">React/Next.js</div>
+              <div class="tag">Nest.js</div>
+              <div class="tag">JavaScript</div>
+              <div class="tag">TypeScript</div>
+              <div class="tag">TailwindCSS</div>
+              <div class="tag">CSS / SCSS</div>
+              <div class="tag">UI / UX</div>
+
+              <!-- Backend -->
+              <div class="tag">Laravel</div>
+              <div class="tag">PHP</div>
+              <div class="tag">Node.js</div>
+              <div class="tag">API REST</div>
+              <div class="tag">MySQL</div>
+
+              <!-- DevOps -->
+              <div class="tag">Docker</div>
+              <div class="tag">Git / GitHub</div>
+              <div class="tag">CI/CD</div>
+
+              <!-- Outils -->
+              <div class="tag">Postman</div>
+              <div class="tag">Figma</div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section id="skills" class="fade-up">
+          <h2>Compétences</h2>
+          <div class="card skills-grid">
+            <div class="skill">
+              <div style="display:flex;justify-content:space-between;font-weight:600">
+                <span>HTML & CSS</span><span class="small">95%</span>
+              </div>
+              <div class="bar"><div class="fill" style="width:95%"></div></div>
+            </div>
+            <div class="skill">
+              <div style="display:flex;justify-content:space-between;font-weight:600">
+                <span>React / Next</span><span class="small">90%</span>
+              </div>
+              <div class="bar"><div class="fill" style="width:90%"></div></div>
+            </div>
+            <div class="skill">
+              <div style="display:flex;justify-content:space-between;font-weight:600">
+                <span>TypeScript</span><span class="small">80%</span>
+              </div>
+              <div class="bar"><div class="fill" style="width:80%"></div></div>
+            </div>
+            <div class="skill">
+              <div style="display:flex;justify-content:space-between;font-weight:600">
+                <span>UI / Prototypage</span><span class="small">85%</span>
+              </div>
+              <div class="bar"><div class="fill" style="width:85%"></div></div>
+            </div>
+            <div class="skill">
+              <div style="display:flex;justify-content:space-between;font-weight:600">
+                <span>Performance</span><span class="small">75%</span>
+              </div>
+              <div class="bar"><div class="fill" style="width:75%"></div></div>
+            </div>
+            <div class="skill">
+              <div style="display:flex;justify-content:space-between;font-weight:600">
+                <span>Testing</span><span class="small">60%</span>
+              </div>
+              <div class="bar"><div class="fill" style="width:60%"></div></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section id="projects" class="fade-up">
+          <h2>Projets récents</h2>
+          <div class="card projects-grid">
+            <div class="project">
+              <div class="proj-thumb">A</div>
+              <div class="proj-info">
+                <h3>App de gestion de stock</h3>
+                <p class="small">React • Node • PostgreSQL — Interface admin réactive, filtres et graphique en temps réel.</p>
+              </div>
+            </div>
+
+            <div class="project">
+              <div class="proj-thumb">B</div>
+              <div class="proj-info">
+                <h3>Landing page marketing</h3>
+                <p class="small">Next.js • SEO • Animations CSS — Conversion optimisée et intégration analytics.</p>
+              </div>
+            </div>
+
+            <div class="project">
+              <div class="proj-thumb">C</div>
+              <div class="proj-info">
+                <h3>Dashboard Agri</h3>
+                <p class="small">Next + Tailwind • Graphs — Dashboard responsive pour suivi de production.</p>
+              </div>
+            </div>
+
+            <div class="project">
+              <div class="proj-thumb">D</div>
+              <div class="proj-info">
+                <h3>Portfolio interactif</h3>
+                <p class="small">Animations, transitions et page contact avec validation client-side.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- EXPERIENCE -->
+        <section id="experience" class="fade-up">
+          <h2>Expérience & formation</h2>
+          <div class="card timeline">
+            <div class="timeline-item">
+              <div class="dot" aria-hidden="true"></div>
+              <div>
+                <strong>Stagiaire Frontend — FicatGroup</strong>
+                <div class="small">Mai 2024 — Août 2024</div>
+                <div class="small" style="margin-top:6px;color:var(--muted)">Travail sur composants réutilisables, optimisation des performances et intégration d'APIs.</div>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="dot" aria-hidden="true"></div>
+              <div>
+                <strong>Formation intensive — Epitech Bénin</strong>
+                <div class="small">2023 — 2024</div>
+                <div class="small" style="margin-top:6px;color:var(--muted)">6 mois de formation intense sur développement web et best practices.</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- TESTIMONIALS -->
+        <section id="testimonials" class="fade-up">
+          <h2>Témoignages</h2>
+          <div class="card testi">
+            <div class="tcard">
+              <strong>Marie — Product Owner</strong>
+              <p class="small" style="margin-top:8px;color:var(--muted)">"Travailler avec Ton Nom a accéléré la livraison du projet. Communication claire et UI impeccable."</p>
+            </div>
+            <div class="tcard">
+              <strong>Paul — CTO</strong>
+              <p class="small" style="margin-top:8px;color:var(--muted)">"Livrables propres, tests et attention aux détails. Recommandé."</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- FOOTER NOTE -->
+        <footer>
+          <div class="small">Tu veux personnaliser ce modèle ? Dis-moi ce que tu veux changer (couleurs, polices, sections) et je t'aide à l'adapter.</div>
+        </footer>
+      </main>
+
+      <!-- RIGHT ASIDE -->
+      <aside>
+        <div class="card contact-card fade-up">
+          <h2>Contact</h2>
+          <p class="small">Tu as un projet ? Écris-moi :</p>
+
+          <form id="contact" onsubmit="event.preventDefault(); alert('Formulaire simulé — implémente un backend pour envoyer.');">
+            <input type="text" placeholder="Ton nom" required />
+            <input type="email" placeholder="Email" required />
+            <input type="text" placeholder="Sujet" />
+            <textarea rows="4" placeholder="Message" required></textarea>
+            <button type="submit" class="btn btn-primary">Envoyer</button>
+          </form>
+
+          <div style="margin-top:12px">
+            <div class="small">Réseaux</div>
+            <div class="socials" style="margin-top:8px">
+              <a class="btn" href="#" style="padding:8px 10px">GitHub</a>
+              <a class="btn" href="#" style="padding:8px 10px">LinkedIn</a>
+              <a class="btn" href="#" style="padding:8px 10px">Twitter</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card fade-up">
+          <h2>Compétences complémentaires</h2>
+          <div class="small" style="margin-top:8px;color:var(--muted)">
+            - Accessibilité (a11y)<br>
+            - Optimisation SEO basique<br>
+            - CI / CD (GitHub Actions)<br>
+            - Tests unitaires & E2E
+          </div>
+        </div>
+
+        <div class="card fade-up">
+          <h2>Download</h2>
+          <p class="small">Télécharge mon CV :</p>
+          <a class="btn" href="#" download>Télécharger CV (PDF)</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <script>
+    // Petite touche: faire apparaître les éléments avec un retard léger
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.fade-up').forEach((el, i) => {
+        el.style.animationDelay = (i * 120) + 'ms';
+      });
+    });
+  </script>
+</body>
+</html>
